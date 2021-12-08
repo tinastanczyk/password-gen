@@ -37,11 +37,51 @@ function generateSpec(){
   return chosenSpec;
 }
 
-function generatePassword() {
+function generatePassword(totChar, lowerCase, upCase, numChar, specChar) {
 
-  var randomPassword = chosenLetter.concat(chosenNum).concat(chosenSpec);
+  console.log("You hit generatePassword");
+  
+  // var randomPassword = chosenLetter.concat(chosenNum).concat(chosenSpec);
 
-  return randomPassword;
+  // return randomPassword;
 }
+
+function inputPrompts(){
+  var firstPrompt = prompt("Enter desired number of characters (8-128): ");
+  if(firstPrompt != null){
+    alert("Number of characters: " + firstPrompt);
+  }else{
+    alert("Number of characters: none");
+  }
+  var secondPrompt = window.confirm("Do you wish to include lowercase letters?");
+  if(secondPrompt){
+    alert("Password will contain lowercase letters");
+  }else{
+    alert("Password will not contain lowercase letters");
+  }
+  var thirdPrompt = window.confirm("Do you wish to include uppercase letters?");
+  if(thirdPrompt){
+    alert("Password will contain uppercase letters");
+  }else{
+    alert("Password will not contain uppercase letters");
+  }
+  var fourthPrompt = window.confirm("Do you wish to include numeric characters?");
+  if(fourthPrompt){
+    alert("Password will contain numeric characters");
+  }else{
+    alert("Password will not contain numeric characters");
+  }
+  var fifthPrompt = window.confirm("Do you wish to include special characters?");
+  if(fifthPrompt){
+    alert("Password will contain special characters");
+  }else{
+    alert("Password will not contain special characters");
+  }
+  generatePassword(firstPrompt, secondPrompt, thirdPrompt, fourthPrompt, fifthPrompt);
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// When generate button is clicked, the user is prompted to set password criteria
+generateBtn.addEventListener("click", inputPrompts);
