@@ -38,21 +38,31 @@ function generateSpec(){
 function generatePassword(totChar, lowerCase, upCase, numChar, specChar) {
   // Creating arrays to push random letters in, their length is the number of characters the user desires
   var randomLetterArr = [];
+  var randomUpLetterArr = [];
   var randomNumberArr = [];
   var randomSpecialArr = [];
   // This array is all of my other random character arrays (randomLetterArr, randomNumberArr & randomSpecialArr) concatenated 
   var randomPassword = [];
-  // This for loop is iterating i up to the user's desired characters and calling myfunction to generate a random character each time. Then, I am pushing each random character into its respective array.
-  for(let i=0; i<totChar; i++){
-    var letter = generateLetter();
-    var number = generateNumber();
-    var special = generateSpec();
-    randomLetterArr.push(letter);
-    randomNumberArr.push(number);
-    randomSpecialArr.push(special);
+
+  switch(true){
+
+    case lowerCase && upCase && numChar && specChar:
+    // This for loop is iterating i up to the user's desired characters and calling my function to generate a random character each time. Then, I am pushing each random   character into its respective array.
+      for(let i=0; i<totChar; i++){
+        var letter = generateLetter();
+        var upLetter = generateLetter();
+        // Creating my array of Uppercase letters
+        upLetter = upLetter.toUpperCase();
+        var number = generateNumber();
+        var special = generateSpec();
+        randomLetterArr.push(letter);
+        randomUpLetterArr.push(upLetter);
+        randomNumberArr.push(number);
+        randomSpecialArr.push(special);
+      }
   }
   // I concatenate all of the random character arrays into my randomArr array.
-  var randomArr = randomLetterArr.concat(randomNumberArr).concat(randomSpecialArr);
+  var randomArr = randomLetterArr.concat(randomNumberArr).concat(randomSpecialArr).concat(randomUpLetterArr);
   // This for loop pushes a random character from the concatenated array to myrandomPassword array until it reaches the length of the user's desired number ofcharacters 
   for(let i=0; i<totChar; i++){
     var randomArrIndex = Math.floor(Math.random() * randomArr.length);
