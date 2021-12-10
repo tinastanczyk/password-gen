@@ -4,7 +4,7 @@ My goal for this project was to build a password generator that would prompt the
 ## Installation
 [Link to Generator](https://tinastanczyk.github.io/password-gen/)
 ## Usage
-![alt text](Develop/assets/images/passwordgen-screenshot.png)
+![alt text](passwordgen-screenshot.png)
 ## Credits
 Not Applicable
 ## License
